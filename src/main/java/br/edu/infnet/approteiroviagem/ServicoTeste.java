@@ -6,6 +6,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.approteiroviagem.controller.ServicoController;
 import br.edu.infnet.approteiroviagem.model.domain.Evento;
 import br.edu.infnet.approteiroviagem.model.domain.Hospedagem;
 import br.edu.infnet.approteiroviagem.model.domain.Transporte;
@@ -26,6 +27,7 @@ public class ServicoTeste implements ApplicationRunner{
 		transporte1.setEnderecoEmbarque("Aeroporto Galeão - Terminal 1");
 		transporte1.setEnderecoDesembarque("Hotel Hilton Copacabana");
 		System.out.println(transporte1.toString());
+		ServicoController.incluir(transporte1);
 		
 		Evento evento1 = new Evento();
 		evento1.setCodigo(1);
@@ -36,6 +38,7 @@ public class ServicoTeste implements ApplicationRunner{
 		evento1.setDuracao(3);
 		evento1.setLocal("Praia de Copacabana");
 		System.out.println(evento1.toString());
+		ServicoController.incluir(evento1);
 		
 		Hospedagem hospedagem1 = new Hospedagem();
 		hospedagem1.setCodigo(4);
@@ -46,5 +49,6 @@ public class ServicoTeste implements ApplicationRunner{
 		hospedagem1.setTotalQuartos(50);
 		hospedagem1.setEmpresa("Widsor");
 		System.out.println(hospedagem1.toString());
+		ServicoController.incluir(hospedagem1);
 	}
 }

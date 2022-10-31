@@ -1,9 +1,18 @@
 package br.edu.infnet.approteiroviagem.model.domain;
 
 public abstract class Servico {
+	private int Id;
 	private String Nome;
 	private int Codigo;
 	private float Valor;
+	
+	public int getId() {
+		return Id;
+	}
+	
+	public void setId(int id) {
+		Id = id;
+	}
 	
 	public String getNome() {
 		return Nome;
@@ -31,6 +40,6 @@ public abstract class Servico {
 
 	@Override
 	public String toString() {
-		return Nome + ";" + Codigo + ";" + Valor; 
+		return Id + ";" + Nome + ";" + Codigo + ";" + Valor; 
 	}
 }

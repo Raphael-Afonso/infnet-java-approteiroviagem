@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE html>
 <html>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <head>
 	<meta charset="ISO-8859-1">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,6 +18,7 @@
 		<table class="table table-striped">
 	    	<thead>
 	    	<tr>
+	    		<th>Id</th>
 			    <th>Código</th>
 			    <th>Nome</th>
 			    <th>Valor</th>
@@ -28,12 +30,16 @@
 		  	<tbody>
 	    		<c:forEach var="hospedagem" items="${ listagem }">
 			    	<tr>
+			    		<td>${ hospedagem.getId() }</td>
 			      		<td>${ hospedagem.getCodigo() }</td>
 			        	<td>${ hospedagem.getNome() }</td>
 			        	<td>${ hospedagem.getValor() }</td>
 			        	<td>${ hospedagem.getEmpresa() }</td>
 			        	<td>${ hospedagem.getEstrelas() }</td>
 			        	<td>${ hospedagem.getTotalQuartos() }</td>
+			        	<td>
+			        		<a class="btn btn-danger" href="/hospedagem/${ hospedagem.getId() }/excluir">Excluir</a>
+			        	</td>
 			    	</tr>
 	    		</c:forEach>
 		    </tbody>

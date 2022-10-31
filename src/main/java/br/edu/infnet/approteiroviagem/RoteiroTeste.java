@@ -8,6 +8,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.approteiroviagem.controller.RoteiroController;
 import br.edu.infnet.approteiroviagem.model.domain.Evento;
 import br.edu.infnet.approteiroviagem.model.domain.Hospedagem;
 import br.edu.infnet.approteiroviagem.model.domain.Roteiro;
@@ -67,17 +68,20 @@ public class RoteiroTeste implements ApplicationRunner{
 		roteiro1.setInternacional(false);
 		roteiro1.setServicos(servicosPrimeiroRoteiro);
 		System.out.println(roteiro1.toString());
+		RoteiroController.incluir(roteiro1);
 		
 		Roteiro roteiro2 = new Roteiro(turista1);
 		roteiro2.setDescricao("Roma - Coliseu");
 		roteiro2.setInternacional(true);
 		roteiro2.setServicos(servicosDemaisRoteiros);
 		System.out.println(roteiro2.toString());
+		RoteiroController.incluir(roteiro2);
 		
 		Roteiro roteiro3 = new Roteiro(turista1);
 		roteiro3.setDescricao("Salvador - Pelourinho");
 		roteiro3.setInternacional(false);
 		roteiro3.setServicos(servicosDemaisRoteiros);
 		System.out.println(roteiro3.toString());
+		RoteiroController.incluir(roteiro3);
 	}
 }

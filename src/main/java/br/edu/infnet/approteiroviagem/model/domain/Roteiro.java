@@ -4,11 +4,20 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Roteiro { //Pedido
+	private int Id;
 	private String Descricao;
 	private LocalDateTime Data;
 	private boolean Internacional;
 	private Turista Turista;
 	private List<Servico> Servicos;
+	
+	public int getId() {
+		return Id;
+	}
+	
+	public void setId(int id) {
+		Id = id;
+	}
 	
 	public Roteiro() {
 		Data = LocalDateTime.now();
@@ -54,6 +63,6 @@ public class Roteiro { //Pedido
 
 	@Override
 	public String toString() {
-		return Descricao + ";" + Data + ";" + Internacional + ";" + Turista + ";" + Servicos.size();
+		return Id + ";" + Descricao + ";" + Data + ";" + Internacional + ";" + Turista + ";" + Servicos.size();
 	}
 }

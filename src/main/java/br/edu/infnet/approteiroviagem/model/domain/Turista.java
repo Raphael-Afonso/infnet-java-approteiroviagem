@@ -1,9 +1,18 @@
 package br.edu.infnet.approteiroviagem.model.domain;
 
 public class Turista {
+	private int Id;
 	private String Nome;
 	private String Cpf;
 	private String Email;
+	
+	public int getId() {
+		return Id;
+	}
+	
+	public void setId(int id) {
+		Id = id;
+	}
 	
 	public String getNome() {
 		return Nome;
@@ -31,6 +40,6 @@ public class Turista {
 
 	@Override
 	public String toString() {
-		return Nome + ";" + Cpf + ";" + Email;
+		return Id + ";" + Nome + ";" + Cpf + ";" + Email;
 	}
 }
