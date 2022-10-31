@@ -1,12 +1,12 @@
-package br.edu.infnet.approteiroviagem;
+package br.edu.infnet.approteiroviagem.controller;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import br.edu.infnet.approteiroviagem.model.domain.Evento;
 import br.edu.infnet.approteiroviagem.model.domain.Hospedagem;
@@ -15,13 +15,11 @@ import br.edu.infnet.approteiroviagem.model.domain.Servico;
 import br.edu.infnet.approteiroviagem.model.domain.Transporte;
 import br.edu.infnet.approteiroviagem.model.domain.Turista;
 
-@Component
-public class RoteiroTeste implements ApplicationRunner{
+@Controller
+public class RoteiroController {
 
-	@Override
-	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("### Cadastramento de roteiros ###");
-		
+	@GetMapping(value="/roteiro/lista")
+	public String telaLista(Model model) {
 		// Turista
 		Turista turista1 = new Turista();		
 		turista1.setCpf("1111111111");
@@ -66,18 +64,24 @@ public class RoteiroTeste implements ApplicationRunner{
 		roteiro1.setDescricao("Rio de janeiro - cristo");
 		roteiro1.setInternacional(false);
 		roteiro1.setServicos(servicosPrimeiroRoteiro);
-		System.out.println(roteiro1.toString());
 		
 		Roteiro roteiro2 = new Roteiro(turista1);
 		roteiro2.setDescricao("Roma - Coliseu");
 		roteiro2.setInternacional(true);
 		roteiro2.setServicos(servicosDemaisRoteiros);
-		System.out.println(roteiro2.toString());
 		
 		Roteiro roteiro3 = new Roteiro(turista1);
 		roteiro3.setDescricao("Salvador - Pelourinho");
 		roteiro3.setInternacional(false);
 		roteiro3.setServicos(servicosDemaisRoteiros);
-		System.out.println(roteiro3.toString());
+		
+		List<Roteiro> roteiros = new ArrayList<Roteiro>();
+		roteiros.add(roteiro1);
+		roteiros.add(roteiro2);
+		roteiros.add(roteiro3);
+		
+		model.addAttribute("listagem", roteiros);
+		
+		return "roteiro/lista";
 	}
 }
