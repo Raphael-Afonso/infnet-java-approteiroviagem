@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,5 +12,32 @@
 	<div class="container mt-3">
 	  <h3>Eventos: ${listagem.size()}</h3>
 	</div>
+	
+	<div class="container">         
+		<table class="table table-striped">
+	    	<thead>
+	    	<tr>
+			    <th>Código</th>
+			    <th>Nome</th>
+			    <th>Valor</th>
+			    <th>Duração</th>
+			    <th>Horário</th>
+			    <th>Local</th>
+	    	</tr>
+	    	</thead>
+		  	<tbody>
+	    		<c:forEach var="evento" items="${ listagem }">
+			    	<tr>
+			      		<td>${ evento.getCodigo() }</td>
+			        	<td>${ evento.getNome() }</td>
+			        	<td>${ evento.getValor() }</td>
+			        	<td>${ evento.getDuracao() }</td>
+			        	<td>${ evento.getHorario() }</td>
+			        	<td>${ evento.getLocal() }</td>
+			    	</tr>
+	    		</c:forEach>
+		    </tbody>
+	  </table>
+</div>
 </body>
 </html>

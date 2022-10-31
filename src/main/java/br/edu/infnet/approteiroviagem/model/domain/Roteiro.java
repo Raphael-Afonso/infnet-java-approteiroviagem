@@ -39,9 +39,17 @@ public class Roteiro { //Pedido
 	public boolean isInternacional() {
 		return Internacional;
 	}
-
+	
+	public Turista getTurista() {
+		return Turista;
+	}
+	
 	public void setInternacional(boolean internacional) {
 		Internacional = internacional;
+	}
+	
+	public LocalDateTime getData() {
+		return Data;
 	}
 
 	@Override

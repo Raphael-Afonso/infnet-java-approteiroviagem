@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,5 +12,27 @@
 	<div class="container mt-3">
 	  <h3>Turistas: ${ listagem.size() }</h3>
 	</div>
+	
+	<div class="container">         
+		<table class="table table-striped">
+	    	<thead>
+	    	<tr>
+			    <th>Cpf</th>
+			    <th>Nome</th>
+			    <th>Email</th>
+	    	</tr>
+	    	</thead>
+		  	<tbody>
+	    		<c:forEach var="turista" items="${ listagem }">
+			    	<tr>
+			      		<td>${ turista.getCpf() }</td>
+			        	<td>${ turista.getNome() }</td>
+			        	<td>${ turista.getEmail() }</td>
+			    	</tr>
+	    		</c:forEach>
+		    </tbody>
+	  </table>
+	</div>	
+	
 </body>
 </html>
