@@ -2,6 +2,11 @@ package br.edu.infnet.approteiroviagem.model.domain;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "t_evento")
 public class Evento extends Servico {
 	private LocalDateTime Horario;
 	private int Duracao;

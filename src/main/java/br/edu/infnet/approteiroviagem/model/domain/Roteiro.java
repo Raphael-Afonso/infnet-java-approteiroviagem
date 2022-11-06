@@ -3,12 +3,26 @@ package br.edu.infnet.approteiroviagem.model.domain;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "t_roteiro")
 public class Roteiro { //Pedido
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Id;
 	private String Descricao;
 	private LocalDateTime Data;
 	private boolean Internacional;
+
+	@Transient
 	private Turista Turista;
+	@Transient
 	private List<Servico> Servicos;
 	
 	public int getId() {

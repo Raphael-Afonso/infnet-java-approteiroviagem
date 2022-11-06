@@ -1,5 +1,10 @@
 package br.edu.infnet.approteiroviagem.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "t_hospedagem")
 public class Hospedagem extends Servico {
 	private int Estrelas;
 	private int TotalQuartos;

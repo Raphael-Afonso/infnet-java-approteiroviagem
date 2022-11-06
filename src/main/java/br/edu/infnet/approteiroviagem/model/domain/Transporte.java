@@ -1,5 +1,10 @@
 package br.edu.infnet.approteiroviagem.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "t_transporte")
 public class Transporte extends Servico {
 	private String Veiculo;
 	private String EnderecoEmbarque;

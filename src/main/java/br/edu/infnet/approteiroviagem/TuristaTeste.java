@@ -1,15 +1,19 @@
 package br.edu.infnet.approteiroviagem;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.approteiroviagem.controller.TuristaController;
 import br.edu.infnet.approteiroviagem.model.domain.Turista;
+import br.edu.infnet.approteiroviagem.model.service.TuristaService;
 
 @Component
 public class TuristaTeste implements ApplicationRunner{
 
+	@Autowired
+	private TuristaService turistaService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("### Cadastramento de turistas ###");
@@ -21,7 +25,7 @@ public class TuristaTeste implements ApplicationRunner{
 		turista1.setEmail("joao@globo.com");
 		turista1.setNome("João");
 		System.out.println(turista1.toString());
-		TuristaController.incluir(turista1);
+		turistaService.incluir(turista1);
 		
 		// Turista 2
 		Turista turista2 = new Turista();
@@ -30,7 +34,7 @@ public class TuristaTeste implements ApplicationRunner{
 		turista2.setEmail("paulo@outlook.com");
 		turista2.setNome("Paulo");
 		System.out.println(turista2.toString());
-		TuristaController.incluir(turista2);
+		turistaService.incluir(turista2);
 		
 		// Turista 3
 		Turista turista3 = new Turista();
@@ -39,7 +43,7 @@ public class TuristaTeste implements ApplicationRunner{
 		turista3.setEmail("arthur@gmail.com");
 		turista3.setNome("Arthus");
 		System.out.println(turista3.toString());
-		TuristaController.incluir(turista3);
+		turistaService.incluir(turista3);
 	}
 
 }

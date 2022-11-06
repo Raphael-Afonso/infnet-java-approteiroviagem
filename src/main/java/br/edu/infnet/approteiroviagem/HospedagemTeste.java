@@ -1,14 +1,18 @@
 package br.edu.infnet.approteiroviagem;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.approteiroviagem.controller.HospedagemController;
 import br.edu.infnet.approteiroviagem.model.domain.Hospedagem;
+import br.edu.infnet.approteiroviagem.model.service.HospedagemService;
 
 @Component
 public class HospedagemTeste implements ApplicationRunner{
+	
+	@Autowired
+	private HospedagemService hospedagemService;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -24,7 +28,7 @@ public class HospedagemTeste implements ApplicationRunner{
 		hospedagem1.setTotalQuartos(50);
 		hospedagem1.setEmpresa("Widsor");
 		System.out.println(hospedagem1.toString());
-		HospedagemController.incluir(hospedagem1);
+		hospedagemService.incluir(hospedagem1);
 				
 		// Hospedagem 2
 		Hospedagem hospedagem2 = new Hospedagem();
@@ -36,7 +40,7 @@ public class HospedagemTeste implements ApplicationRunner{
 		hospedagem2.setTotalQuartos(120);
 		hospedagem2.setEmpresa("Hilton");
 		System.out.println(hospedagem2.toString());
-		HospedagemController.incluir(hospedagem2);
+		hospedagemService.incluir(hospedagem2);
 		
 		// Hospedagem 3
 		Hospedagem hospedagem3 = new Hospedagem();
@@ -48,6 +52,6 @@ public class HospedagemTeste implements ApplicationRunner{
 		hospedagem3.setTotalQuartos(65);
 		hospedagem3.setEmpresa("Ibis");
 		System.out.println(hospedagem3.toString());
-		HospedagemController.incluir(hospedagem3);
+		hospedagemService.incluir(hospedagem3);
 	}
 }

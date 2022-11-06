@@ -1,6 +1,16 @@
 package br.edu.infnet.approteiroviagem.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "t_turista")
 public class Turista {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Id;
 	private String Nome;
 	private String Cpf;

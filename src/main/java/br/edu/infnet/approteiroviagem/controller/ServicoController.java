@@ -1,45 +1,28 @@
 package br.edu.infnet.approteiroviagem.controller;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import br.edu.infnet.approteiroviagem.model.domain.Servico;
+import br.edu.infnet.approteiroviagem.model.service.ServicoService;
 
 @Controller
 public class ServicoController {
-	private static Map<Integer, Servico> mapa = new HashMap<Integer, Servico>();
-	private static Integer id = 1;
-	
-	public static void incluir(Servico servico) {
-		servico.setId(id++);
-		
-		mapa.put(servico.getId(), servico);
-	}
+	@Autowired
+	private ServicoService servicoService;
 
-	public static void excluir(Integer id) {
-		mapa.remove(id);
-	}
-	
-	public static Collection<Servico> obterLista(){
-		return mapa.values();
-	}
-	
 	@GetMapping(value="/servico/lista")
 	public String telaLista(Model model) {
-		model.addAttribute("listagem", obterLista());
+		model.addAttribute("listagem", servicoService.obterLista());
 		
 		return "servico/lista";
 	}
 	
 	@GetMapping(value="/servico/{id}/excluir")
 	public String exclusao(@PathVariable Integer id) {
-		excluir(id);
+		servicoService.excluir(id);
 		
 		return "redirect:/servico/lista";
 	}

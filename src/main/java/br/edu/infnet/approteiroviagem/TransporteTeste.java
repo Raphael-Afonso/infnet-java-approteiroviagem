@@ -1,15 +1,19 @@
 package br.edu.infnet.approteiroviagem;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.approteiroviagem.controller.TransporteController;
 import br.edu.infnet.approteiroviagem.model.domain.Transporte;
+import br.edu.infnet.approteiroviagem.model.service.TransporteService;
 
 @Component
 public class TransporteTeste implements ApplicationRunner{
-
+	@Autowired
+	private TransporteService transporteService;
+	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("### Cadastramento de transportes ###");
@@ -24,7 +28,7 @@ public class TransporteTeste implements ApplicationRunner{
 		transporte1.setEnderecoEmbarque("Aeroporto Galeão - Terminal 1");
 		transporte1.setEnderecoDesembarque("Hotel Hilton Copacabana");
 		System.out.println(transporte1.toString());
-		TransporteController.incluir(transporte1);
+		transporteService.incluir(transporte1);
 		
 		//Transporte 2
 		Transporte transporte2 = new Transporte();
@@ -36,7 +40,7 @@ public class TransporteTeste implements ApplicationRunner{
 		transporte2.setEnderecoEmbarque("Aeroporto de Guarulhos");
 		transporte2.setEnderecoDesembarque("Aeroporto Santos Dumont");
 		System.out.println(transporte2.toString());
-		TransporteController.incluir(transporte2);
+		transporteService.incluir(transporte2);
 		
 		// Transporte 3
 		Transporte transporte3 = new Transporte();
@@ -48,7 +52,7 @@ public class TransporteTeste implements ApplicationRunner{
 		transporte3.setEnderecoEmbarque("Copacabana Palace");
 		transporte3.setEnderecoDesembarque("Sambódromo");
 		System.out.println(transporte3.toString());
-		TransporteController.incluir(transporte3);
+		transporteService.incluir(transporte3);
 	}
 
 }

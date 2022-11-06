@@ -2,17 +2,21 @@ package br.edu.infnet.approteiroviagem;
 
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.approteiroviagem.controller.EventoController;
 import br.edu.infnet.approteiroviagem.model.domain.Evento;
+import br.edu.infnet.approteiroviagem.model.service.EventoService;
 
 @Component
 public class EventoTeste implements ApplicationRunner{
+	@Autowired
+	private EventoService eventoService;
+	
 	@Override
-	public void run(ApplicationArguments args) throws Exception {
+	public void run(ApplicationArguments args) throws Exception {		
 		System.out.println("### Cadastramento de eventos ###");
 		
 		//Evento 1
@@ -24,7 +28,7 @@ public class EventoTeste implements ApplicationRunner{
 		evento1.setDuracao(3);
 		evento1.setLocal("Praia de Copacabana");
 		System.out.println(evento1.toString());
-		EventoController.incluir(evento1);
+		eventoService.incluir(evento1);
 		
 		// Evento 2
 		Evento evento2 = new Evento();
@@ -36,7 +40,7 @@ public class EventoTeste implements ApplicationRunner{
 		evento2.setDuracao(2);
 		evento2.setLocal("Aterro do flamengo");
 		System.out.println(evento2.toString());
-		EventoController.incluir(evento2);
+		eventoService.incluir(evento2);
 		
 		// Evento 3
 		Evento evento3 = new Evento();
@@ -48,6 +52,6 @@ public class EventoTeste implements ApplicationRunner{
 		evento3.setDuracao(4);
 		evento3.setLocal("Sapucaí");
 		System.out.println(evento3.toString());
-		EventoController.incluir(evento3);
+		eventoService.incluir(evento3);
 	}
 }
