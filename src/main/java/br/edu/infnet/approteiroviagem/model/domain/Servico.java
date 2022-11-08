@@ -4,17 +4,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "t_servico")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Servico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Id;
 	private String Nome;
-	private int Codigo;
+	private String Fornecedor;
 	private float Valor;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario Usuario;
 	
 	public int getId() {
 		return Id;
@@ -32,12 +40,12 @@ public abstract class Servico {
 		Nome = nome;
 	}
 
-	public int getCodigo() {
-		return Codigo;
+	public String getFornecedor() {
+		return Fornecedor;
 	}
 
-	public void setCodigo(int codigo) {
-		Codigo = codigo;
+	public void setFornecedor(String fornecedor) {
+		Fornecedor = fornecedor;
 	}
 
 	public float getValor() {
@@ -50,6 +58,6 @@ public abstract class Servico {
 
 	@Override
 	public String toString() {
-		return Id + ";" + Nome + ";" + Codigo + ";" + Valor; 
+		return Id + ";" + Nome + ";" + Fornecedor + ";" + Valor; 
 	}
 }

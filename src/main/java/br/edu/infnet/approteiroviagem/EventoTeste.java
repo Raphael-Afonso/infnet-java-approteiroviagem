@@ -21,7 +21,7 @@ public class EventoTeste implements ApplicationRunner{
 		
 		//Evento 1
 		Evento evento1 = new Evento();
-		evento1.setCodigo(1);
+		evento1.setFornecedor("Abc eventos");
 		evento1.setNome("Show da virada do ano");
 		evento1.setValor(20);		
 		evento1.setHorario(LocalDateTime.now());
@@ -32,7 +32,7 @@ public class EventoTeste implements ApplicationRunner{
 		
 		// Evento 2
 		Evento evento2 = new Evento();
-		evento2.setCodigo(2);
+		evento2.setFornecedor("Xpto eventos");
 		evento2.setNome("Maratona mundial");
 		evento2.setValor(150.00f);
 		
@@ -44,7 +44,7 @@ public class EventoTeste implements ApplicationRunner{
 		
 		// Evento 3
 		Evento evento3 = new Evento();
-		evento3.setCodigo(3);
+		evento3.setFornecedor("Acme eventos");
 		evento3.setNome("Carnaval");
 		evento3.setValor(300);
 		

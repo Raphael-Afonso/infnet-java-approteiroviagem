@@ -22,7 +22,7 @@ public class ServicoTeste implements ApplicationRunner{
 		System.out.println("### Cadastramento de serviços ###");
 		
 		Transporte transporte1 = new Transporte();
-		transporte1.setCodigo(7);
+		transporte1.setFornecedor("Hilton eventos");
 		transporte1.setNome("Translado Galeão - Hilton");
 		transporte1.setValor(80);
 		
@@ -33,7 +33,7 @@ public class ServicoTeste implements ApplicationRunner{
 		servicoService.incluir(transporte1);
 		
 		Evento evento1 = new Evento();
-		evento1.setCodigo(1);
+		evento1.setFornecedor("Acme eventos");
 		evento1.setNome("Show da virada do ano");
 		evento1.setValor(0);
 		
@@ -44,7 +44,7 @@ public class ServicoTeste implements ApplicationRunner{
 		servicoService.incluir(evento1);
 		
 		Hospedagem hospedagem1 = new Hospedagem();
-		hospedagem1.setCodigo(4);
+		hospedagem1.setFornecedor("Acme eventos");
 		hospedagem1.setNome("Hospedagem no Widsor");
 		hospedagem1.setValor(550);
 		

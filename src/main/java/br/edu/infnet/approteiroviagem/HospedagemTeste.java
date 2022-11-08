@@ -20,7 +20,7 @@ public class HospedagemTeste implements ApplicationRunner{
 		
 		// Hospedagem 1
 		Hospedagem hospedagem1 = new Hospedagem();
-		hospedagem1.setCodigo(4);
+		hospedagem1.setFornecedor("Acme eventos");
 		hospedagem1.setNome("Hospedagem no Widsor");
 		hospedagem1.setValor(550);
 		
@@ -32,7 +32,7 @@ public class HospedagemTeste implements ApplicationRunner{
 				
 		// Hospedagem 2
 		Hospedagem hospedagem2 = new Hospedagem();
-		hospedagem2.setCodigo(5);
+		hospedagem2.setFornecedor("Xpto eventos");
 		hospedagem2.setNome("Hospedagem no Hilton");
 		hospedagem2.setValor(600);
 		
@@ -44,7 +44,7 @@ public class HospedagemTeste implements ApplicationRunner{
 		
 		// Hospedagem 3
 		Hospedagem hospedagem3 = new Hospedagem();
-		hospedagem3.setCodigo(6);
+		hospedagem3.setFornecedor("Xyz eventos");
 		hospedagem3.setNome("Hospedagem no Ibis");
 		hospedagem3.setValor(250);
 		

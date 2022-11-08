@@ -1,90 +1,70 @@
 package br.edu.infnet.approteiroviagem.model.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "t_turista")
-public class Turista {
+@Table(name = "t_usuario")
+public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Id;
 	private String Nome;
-	private String Cpf;
-	private String Email;
-	@ManyToOne
+	private String email;
+	private String Senha;
+	@OneToMany
 	@JoinColumn(name = "idUsuario")
-	private Usuario Usuario;
+	private List<Turista> Turistas;
+
+	@Override
+	public String toString() {
+		return Id + ";" + Nome + ";" + Senha + ";" + email;
+	}
 
 	public int getId() {
 		return Id;
 	}
 
-
-
 	public void setId(int id) {
 		Id = id;
 	}
-
-
 
 	public String getNome() {
 		return Nome;
 	}
 
-
-
 	public void setNome(String nome) {
 		Nome = nome;
 	}
 
-
-
-	public String getCpf() {
-		return Cpf;
-	}
-
-
-
-	public void setCpf(String cpf) {
-		Cpf = cpf;
-	}
-
-
-
 	public String getEmail() {
-		return Email;
+		return email;
 	}
-
-
 
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
-
-
-	public Usuario getUsuario() {
-		return Usuario;
+	public String getSenha() {
+		return Senha;
 	}
 
-
-
-	public void setUsuario(Usuario usuario) {
-		Usuario = usuario;
-	}
-
-
-
-	@Override
-	public String toString() {
-		return Id + ";" + Nome + ";" + Cpf + ";" + Email;
+	public void setSenha(String senha) {
+		Senha = senha;
 	}
 	
-	
+	public List<Turista> getTuristas() {
+		return Turistas;
+	}
+
+	public void setTuristas(List<Turista> turistas) {
+		Turistas = turistas;
+	}
 }

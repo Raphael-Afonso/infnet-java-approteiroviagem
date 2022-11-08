@@ -3,8 +3,9 @@ package br.edu.infnet.approteiroviagem.model.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.infnet.approteiroviagem.model.domain.Turista;
+import br.edu.infnet.approteiroviagem.model.domain.Usuario;
 
 @Repository
-public interface TuristaRepository extends CrudRepository<Turista, Integer>{
+public interface UsuarioRepository extends CrudRepository<Usuario, Integer>{
+	Usuario findByEmail(String Email);
 }

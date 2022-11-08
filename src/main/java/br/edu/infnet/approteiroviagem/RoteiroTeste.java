@@ -35,7 +35,7 @@ public class RoteiroTeste implements ApplicationRunner{
 		
 		// Serviços
 		Transporte transporte1 = new Transporte();
-		transporte1.setCodigo(7);
+		transporte1.setFornecedor("Acme eventos");
 		transporte1.setNome("Translado Galeão - Hilton");
 		transporte1.setValor(80);
 		transporte1.setVeiculo("Onibus");
@@ -43,7 +43,7 @@ public class RoteiroTeste implements ApplicationRunner{
 		transporte1.setEnderecoDesembarque("Hotel Hilton Copacabana");
 		
 		Evento evento1 = new Evento();
-		evento1.setCodigo(1);
+		evento1.setFornecedor("Acme eventos");
 		evento1.setNome("Show da virada do ano");
 		evento1.setValor(0);
 		evento1.setHorario(LocalDateTime.now());
@@ -51,7 +51,7 @@ public class RoteiroTeste implements ApplicationRunner{
 		evento1.setLocal("Praia de Copacabana");
 		
 		Hospedagem hospedagem1 = new Hospedagem();
-		hospedagem1.setCodigo(4);
+		hospedagem1.setFornecedor("Acme eventos");
 		hospedagem1.setNome("Hospedagem no Widsor");
 		hospedagem1.setValor(550);		
 		hospedagem1.setEstrelas(4);
