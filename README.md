@@ -30,3 +30,4 @@ Projeto final para a disciplina Arquitetura Java - Infnet - Professor Elberth Mo
 ### 5. A aplicação
 #### 5.1 Ao iniciar a aplicação irá popular o banco de dados com uma carga inicial, que poderá ser observada no console;
 #### 5.2 A aplicação estará disponível na url: http://localhost:8080
+#### 5.3 O backend do usuário [api-usuario] estará disponível na url: http://localhost:8082
