@@ -26,8 +26,7 @@ public class UsuarioService {
 		return (List<Usuario>) usuarioRepository.findAll();
 	}
 
-	public Usuario validar(String email, String senha) {
-		
+	public Usuario validar(String email, String senha){		
 		Usuario usuario = usuarioRepository.findByEmail(email);
 		
 		if(usuario != null && senha.equals(usuario.getSenha())) {

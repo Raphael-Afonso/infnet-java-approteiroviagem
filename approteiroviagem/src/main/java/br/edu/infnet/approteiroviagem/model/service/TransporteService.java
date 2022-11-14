@@ -1,32 +1,28 @@
 package br.edu.infnet.approteiroviagem.model.service;
 
-import java.util.Collection;
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.infnet.approteiroviagem.clients.ITransporteClient;
 import br.edu.infnet.approteiroviagem.model.domain.Transporte;
-import br.edu.infnet.approteiroviagem.model.repository.TransporteRepository;
+import br.edu.infnet.approteiroviagem.model.domain.Usuario;
 
 @Service
 public class TransporteService {
 	@Autowired 
-	private TransporteRepository transporteRepository;
+	private ITransporteClient transporteClient;
 	
 	public void incluir(Transporte transporte) {
-		transporteRepository.save(transporte);
+		transporteClient.incluir(transporte);
 	}
 	
 	public void excluir(Integer id) {
-		transporteRepository.deleteById(id);
+		transporteClient.excluir(id);
 	}
 	
-	public Collection<Transporte> obterLista(){
-		return (Collection<Transporte>) transporteRepository.findAll();
-	}
-	
-	public Optional<Transporte> obterPorId(Integer id){
-		return transporteRepository.findById(id);
+	public List<Transporte> obterLista(Usuario usuario){
+		return transporteClient.obterLista(usuario.getId());
 	}
 }

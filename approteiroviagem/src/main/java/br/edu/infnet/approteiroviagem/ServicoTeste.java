@@ -23,7 +23,7 @@ public class ServicoTeste implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("### Cadastramento de serviços ###");
-		
+		/*
 		Usuario usuario = new Usuario();
 		usuario.setId(1);
 		
@@ -58,6 +58,6 @@ public class ServicoTeste implements ApplicationRunner{
 		hospedagem1.setEmpresa("Widsor");
 		hospedagem1.setUsuario(usuario);
 		System.out.println(hospedagem1.toString());
-		servicoService.incluir(hospedagem1);
+		servicoService.incluir(hospedagem1);*/
 	}
 }

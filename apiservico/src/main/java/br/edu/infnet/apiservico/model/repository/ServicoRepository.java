@@ -1,4 +1,4 @@
-package br.edu.infnet.approteiroviagem.model.repository;
+package br.edu.infnet.apiservico.model.repository;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.infnet.approteiroviagem.model.domain.Servico;
+import br.edu.infnet.apiservico.model.domain.Servico;
 
 @Repository
 public interface ServicoRepository extends CrudRepository<Servico, Integer>{

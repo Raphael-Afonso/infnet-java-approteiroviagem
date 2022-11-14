@@ -25,6 +25,7 @@
 			    <th>Empresa</th>
 			    <th>Estrelas</th>
 			    <th>Total de quartos</th>
+			    <th>Usuario</th>
 	    	</tr>
 	    	</thead>
 		  	<tbody>
@@ -37,6 +38,7 @@
 			        	<td>${ hospedagem.getEmpresa() }</td>
 			        	<td>${ hospedagem.getEstrelas() }</td>
 			        	<td>${ hospedagem.getTotalQuartos() }</td>
+			        	<td>${ hospedagem.getUsuario().getNome() }</td>
 			        	<td>
 			        		<a class="btn btn-danger" href="/hospedagem/${ hospedagem.getId() }/excluir">Excluir</a>
 			        	</td>

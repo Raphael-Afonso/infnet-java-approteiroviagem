@@ -25,6 +25,7 @@
 			    <th>EnderecoDesembarque</th>
 			    <th>EnderecoEmbarque</th>
 			    <th>Veiculo</th>
+			    <th>Usuario</th>
 	    	</tr>
 	    	</thead>
 		  	<tbody>
@@ -37,6 +38,7 @@
 			        	<td>${ transporte.getEnderecoDesembarque() }</td>
 			        	<td>${ transporte.getEnderecoEmbarque() }</td>
 			        	<td>${ transporte.getVeiculo() }</td>
+			        	<td>${ transporte.getUsuario().getNome() }</td>
 			        	<td>
 			        		<a class="btn btn-danger" href="/transporte/${ transporte.getId() }/excluir">Excluir</a>
 			        	</td>

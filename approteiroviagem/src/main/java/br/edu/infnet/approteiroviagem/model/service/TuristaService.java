@@ -1,37 +1,28 @@
 package br.edu.infnet.approteiroviagem.model.service;
 
-import java.util.Collection;
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.infnet.approteiroviagem.clients.ITuristaClient;
 import br.edu.infnet.approteiroviagem.model.domain.Turista;
 import br.edu.infnet.approteiroviagem.model.domain.Usuario;
-import br.edu.infnet.approteiroviagem.model.repository.TuristaRepository;
 
 @Service
 public class TuristaService {
 	@Autowired 
-	private TuristaRepository turistaRepository;
+	private ITuristaClient turistaClient;
 	
 	public void incluir(Turista turista) {
-		turistaRepository.save(turista);
+		turistaClient.incluir(turista);
 	}
 	
 	public void excluir(Integer id) {
-		turistaRepository.deleteById(id);
+		turistaClient.excluir(id);
 	}
 	
-	public Collection<Turista> obterLista(){
-		return (Collection<Turista>) turistaRepository.findAll();
-	}
-	
-	public Collection<Turista> obterLista(Usuario usuario){
-		return turistaRepository.obterLista(usuario.getId());
-	}
-	
-	public Optional<Turista> obterPorId(Integer id){
-		return turistaRepository.findById(id);
+	public List<Turista> obterLista(Usuario usuario){
+		return turistaClient.obterLista(usuario.getId());
 	}
 }

@@ -25,6 +25,7 @@
 			    <th>Duração</th>
 			    <th>Horário</th>
 			    <th>Local</th>
+			    <th>Usuario</th>
 	    	</tr>
 	    	</thead>
 		  	<tbody>
@@ -37,6 +38,7 @@
 			        	<td>${ evento.getDuracao() }</td>
 			        	<td>${ evento.getHorario() }</td>
 			        	<td>${ evento.getLocal() }</td>
+			        	<td>${ evento.getUsuario().getNome() }</td>
 			        	<td>
 			        		<a class="btn btn-danger" href="/evento/${ evento.getId() }/excluir">Excluir</a>
 			        	</td>
