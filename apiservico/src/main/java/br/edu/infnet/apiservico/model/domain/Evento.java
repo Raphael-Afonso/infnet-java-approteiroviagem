@@ -8,16 +8,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "t_evento")
 public class Evento extends Servico {
-	private LocalDateTime horario;
+	private boolean openBar;
 	private int duracao;
 	private String local;
-	
-	public LocalDateTime getHorario() {
-		return horario;
+
+	public boolean isOpenBar() {
+		return openBar;
 	}
 
-	public void setHorario(LocalDateTime horario) {
-		this.horario = horario;
+	public void setOpenBar(boolean openBar) {
+		this.openBar = openBar;
 	}
 
 	public int getDuracao() {
@@ -38,6 +38,6 @@ public class Evento extends Servico {
 
 	@Override
 	public String toString() {
-		return super.toString() + ";" + horario + ";" + duracao + ";" + local;
+		return super.toString() + ";" + openBar + ";" + duracao + ";" + local;
 	}
 }
