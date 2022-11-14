@@ -1,7 +1,5 @@
 package br.edu.infnet.apiservico.model.domain;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
