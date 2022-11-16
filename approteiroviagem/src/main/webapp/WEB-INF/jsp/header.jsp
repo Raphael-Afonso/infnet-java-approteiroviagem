@@ -30,7 +30,6 @@
 							<li><a href="/evento/lista">Eventos</a></li>
 							<li><a href="/hospedagem/lista">Hospedagens</a></li>
 							<li><a href="/transporte/lista">Transportes</a></li>
-							<li><a href="/servico/lista">Todos serviços</a>
 						</ul></li>
 					<li class="nav-item"><a class="nav-link" href="/turista/lista">Turistas</a></li>
 				</c:if>

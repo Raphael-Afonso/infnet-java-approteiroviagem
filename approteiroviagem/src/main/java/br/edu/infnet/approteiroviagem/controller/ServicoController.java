@@ -18,8 +18,8 @@ public class ServicoController {
 	private ServicoService servicoService;
 
 	@GetMapping(value="/servico/lista")
-	public String telaLista(Model model) {
-		model.addAttribute("listagem", servicoService.obterLista());
+	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
+		model.addAttribute("listagem", servicoService.obterLista(usuario));
 		
 		return "servico/lista";
 	}

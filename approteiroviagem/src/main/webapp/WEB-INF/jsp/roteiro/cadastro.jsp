@@ -37,21 +37,21 @@
 			</div>
 
 			<div class="form-group">
-				<label>Turistas:</label> <select name="turista"
+				<label>Turistas:</label> <select name="turista.id"
 					class="form-control">
-					<c:forEach var="turista" items="${turistas}">
-						<option value="${turista.id}">${turista.nome}</option>
+					<c:forEach var="t" items="${turistas}">
+						<option value="${t.id}">${t.nome}</option>
 					</c:forEach>
 				</select>
 			</div>
 
 			<div class="form-group">
 				<label>Serviços:</label>
-				<c:forEach var="servico" items="${servicos}">
+				<c:forEach var="s" items="${servicos}">
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox" name="servicos"
-							value="${servico.id}"> <label class="form-check-label">
-							${servico.nome}</label>
+							value="${s.id}"> <label class="form-check-label">
+							${s.nome}</label>
 					</div>
 				</c:forEach>
 			</div>

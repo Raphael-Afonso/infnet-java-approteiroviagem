@@ -24,8 +24,8 @@ public class RoteiroController {
 	private TuristaService turistaService;
 
 	@GetMapping(value="/roteiro/lista")
-	public String telaLista(Model model) {
-		model.addAttribute("listagem", roteiroService.obterLista());
+	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
+		model.addAttribute("listagem", roteiroService.obterLista(usuario));
 
 		return "roteiro/lista";
 	}
@@ -41,7 +41,6 @@ public class RoteiroController {
 
 	@PostMapping(value = "/roteiro/incluir")
 	public String incluir(Roteiro roteiro, @SessionAttribute("user") Usuario usuario) {
-		
 		roteiro.setUsuario(usuario);
 		
 		roteiroService.incluir(roteiro);

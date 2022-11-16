@@ -21,6 +21,9 @@
 	    		<th>Id</th>
 			    <th>Nome</th>
 			    <th>Email</th>
+			    <th>Cep</th>
+			    <th>Bairro</th>
+			    <th>Uf</th>
 	    	</tr>
 	    	</thead>
 		  	<tbody>
@@ -29,6 +32,9 @@
 			    		<td>${ usuario.getId() }</td>
 			        	<td>${ usuario.getNome() }</td>
 			        	<td>${ usuario.getEmail() }</td>
+			        	<td>${ usuario.getEndereco().getCep() }</td>
+			        	<td>${ usuario.getEndereco().getBairro() }</td>
+			        	<td>${ usuario.getEndereco().getUf() }</td>
 			        	<td>
 			        		<a class="btn btn-danger" href="/usuario/${ usuario.getId() }/excluir">Excluir</a>
 			        	</td>

@@ -8,7 +8,7 @@ import javax.persistence.Table;
 public class Hospedagem extends Servico {
 	private int estrelas;
 	private int totalQuartos;
-	private String empresa;
+	private boolean cafeIncluso;
 		
 	public int getEstrelas() {
 		return estrelas;
@@ -26,16 +26,16 @@ public class Hospedagem extends Servico {
 		this.totalQuartos = totalQuartos;
 	}
 
-	public String getEmpresa() {
-		return empresa;
+	public boolean isCafeIncluso() {
+		return cafeIncluso;
 	}
 
-	public void setEmpresa(String empresa) {
-		this.empresa = empresa;
+	public void setCafeIncluso(boolean cafeIncluso) {
+		this.cafeIncluso = cafeIncluso;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + ";" + estrelas + ";" + totalQuartos + ";" + empresa;
+		return super.toString() + ";" + estrelas + ";" + totalQuartos + ";" + cafeIncluso;
 	}
 }

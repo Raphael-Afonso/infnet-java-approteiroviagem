@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import br.edu.infnet.approteiroviagem.model.domain.Hospedagem;
 import br.edu.infnet.approteiroviagem.model.domain.Roteiro;
 import br.edu.infnet.approteiroviagem.model.domain.Servico;
+import br.edu.infnet.approteiroviagem.model.domain.Transporte;
 import br.edu.infnet.approteiroviagem.model.domain.Turista;
 import br.edu.infnet.approteiroviagem.model.domain.Usuario;
 import br.edu.infnet.approteiroviagem.model.service.RoteiroService;
@@ -30,13 +31,17 @@ public class RoteiroTeste implements ApplicationRunner{
 		usuario.setId(1);
 		
 		Hospedagem hospedagem = new Hospedagem();
-		hospedagem.setId(1);
+		hospedagem.setId(4);
+		
+		Transporte transporte = new Transporte();
+		transporte.setId(7);
 		
 		Turista turista = new Turista();
 		turista.setId(1);
 		
 		List<Servico> servicosPrimeiroRoteiro = new ArrayList<Servico>();
 		servicosPrimeiroRoteiro.add(hospedagem);
+		servicosPrimeiroRoteiro.add(transporte);
 		
 		List<Servico> servicosDemaisRoteiros = new ArrayList<Servico>();
 		servicosDemaisRoteiros.add(hospedagem);

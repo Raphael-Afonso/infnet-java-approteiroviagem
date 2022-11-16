@@ -7,6 +7,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.approteiroviagem.model.domain.Hospedagem;
+import br.edu.infnet.approteiroviagem.model.domain.Usuario;
 import br.edu.infnet.approteiroviagem.model.service.HospedagemService;
 
 @Order(5)
@@ -20,6 +21,9 @@ public class HospedagemTeste implements ApplicationRunner{
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("### Cadastramento de hospedagens ###");
 		
+		Usuario usuario = new Usuario();
+		usuario.setId(1);
+		
 		// Hospedagem 1
 		Hospedagem hospedagem1 = new Hospedagem();
 		hospedagem1.setFornecedor("Acme eventos");
@@ -28,7 +32,8 @@ public class HospedagemTeste implements ApplicationRunner{
 		
 		hospedagem1.setEstrelas(4);
 		hospedagem1.setTotalQuartos(50);
-		hospedagem1.setEmpresa("Widsor");
+		hospedagem1.setCafeIncluso(true);
+		hospedagem1.setUsuario(usuario);
 		System.out.println(hospedagem1.toString());
 		hospedagemService.incluir(hospedagem1);
 				
@@ -40,7 +45,8 @@ public class HospedagemTeste implements ApplicationRunner{
 		
 		hospedagem2.setEstrelas(4);
 		hospedagem2.setTotalQuartos(120);
-		hospedagem2.setEmpresa("Hilton");
+		hospedagem2.setCafeIncluso(false);
+		hospedagem2.setUsuario(usuario);
 		System.out.println(hospedagem2.toString());
 		hospedagemService.incluir(hospedagem2);
 		
@@ -52,7 +58,8 @@ public class HospedagemTeste implements ApplicationRunner{
 		
 		hospedagem3.setEstrelas(3);
 		hospedagem3.setTotalQuartos(65);
-		hospedagem3.setEmpresa("Ibis");
+		hospedagem3.setCafeIncluso(true);
+		hospedagem3.setUsuario(usuario);
 		System.out.println(hospedagem3.toString());
 		hospedagemService.incluir(hospedagem3);
 	}

@@ -1,32 +1,28 @@
 package br.edu.infnet.approteiroviagem.model.service;
 
-import java.util.Collection;
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.infnet.approteiroviagem.clients.IHospedagemClient;
 import br.edu.infnet.approteiroviagem.model.domain.Hospedagem;
-import br.edu.infnet.approteiroviagem.model.repository.HospedagemRepository;
+import br.edu.infnet.approteiroviagem.model.domain.Usuario;
 
 @Service
 public class HospedagemService {
 	@Autowired 
-	private HospedagemRepository hospedagemRepository;
+	private IHospedagemClient hospedagemClient;
 	
 	public void incluir(Hospedagem hospedagem) {
-		hospedagemRepository.save(hospedagem);
+		hospedagemClient.incluir(hospedagem);
 	}
 	
 	public void excluir(Integer id) {
-		hospedagemRepository.deleteById(id);
+		hospedagemClient.excluir(id);
 	}
 	
-	public Collection<Hospedagem> obterLista(){
-		return (Collection<Hospedagem>) hospedagemRepository.findAll();
-	}
-	
-	public Optional<Hospedagem> obterPorId(Integer id){
-		return hospedagemRepository.findById(id);
+	public List<Hospedagem> obterLista(Usuario usuario){
+		return hospedagemClient.obterLista(usuario.getId());
 	}
 }
