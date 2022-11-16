@@ -14,9 +14,22 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+
 @Entity
 @Table(name = "t_servico")
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonTypeInfo(
+		use = JsonTypeInfo.Id.NAME, 
+		include = JsonTypeInfo.As.PROPERTY, 
+		property = "type")
+@JsonSubTypes({ 
+	@Type(value = Evento.class, name = "evento"),
+	@Type(value = Hospedagem.class, name = "hospedagem"), 
+	@Type(value = Transporte.class, name = "transporte") 
+})
 public abstract class Servico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,4 +1,4 @@
-package br.edu.infnet.approteiroviagem.model.domain;
+package br.edu.infnet.apiroteiro.model.domain;
 
 import java.util.List;
 
@@ -8,14 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 
 @Entity
 @Table(name = "t_servico")
@@ -29,20 +27,16 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 	@Type(value = Hospedagem.class, name = "hospedagem"), 
 	@Type(value = Transporte.class, name = "transporte") 
 })
-public class Servico {
+public abstract class Servico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nome;
 	private String fornecedor;
 	private float valor;
-
+	
 	@ManyToMany(mappedBy = "servicos")
 	private List<Roteiro> roteiros;
-
-	@ManyToOne
-	@JoinColumn(name = "idUsuario")
-	private Usuario usuario;
 
 	@Override
 	public String toString() {
@@ -79,13 +73,5 @@ public class Servico {
 
 	public void setValor(float valor) {
 		this.valor = valor;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 }

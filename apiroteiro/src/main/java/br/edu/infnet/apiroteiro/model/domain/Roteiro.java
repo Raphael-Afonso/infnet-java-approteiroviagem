@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -34,10 +33,9 @@ public class Roteiro {
 	@ManyToMany(cascade = CascadeType.DETACH)
 	private List<Servico> servicos;
 	
-	@ManyToOne
-	@JoinColumn(name = "idUsuario")
-	private Usuario usuario;
-	
+	@OneToOne(cascade = CascadeType.DETACH)
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;	
 	
 	public Roteiro() {
 		data = LocalDateTime.now();
